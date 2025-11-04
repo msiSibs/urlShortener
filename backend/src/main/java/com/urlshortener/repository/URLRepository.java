@@ -62,4 +62,10 @@ public interface URLRepository extends MongoRepository<URLMapping, String> {
      */
     @Query(value = "{ 'expiresAt': { '$lt': ?0 } }", delete = true)
     long deleteExpiredUrls(LocalDateTime now);
+    
+    /**
+     * Find recent URLs ordered by creation date
+     * @return List of recent URLMappings
+     */
+    List<URLMapping> findTop10ByOrderByCreatedAtDesc();
 }

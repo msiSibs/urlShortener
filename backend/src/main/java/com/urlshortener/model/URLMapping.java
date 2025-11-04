@@ -23,6 +23,8 @@ public class URLMapping {
     private LocalDateTime expiresAt;
     
     private String domain;
+    
+    private int clickCount = 0;
 
     public URLMapping() {}
     
@@ -89,6 +91,18 @@ public class URLMapping {
         this.domain = domain;
     }
     
+    public int getClickCount() {
+        return clickCount;
+    }
+    
+    public void setClickCount(int clickCount) {
+        this.clickCount = clickCount;
+    }
+    
+    public void incrementClickCount() {
+        this.clickCount++;
+    }
+    
     // Util
     public boolean isExpired() {
         return expiresAt != null && LocalDateTime.now().isAfter(expiresAt);
@@ -103,6 +117,7 @@ public class URLMapping {
                 ", createdAt=" + createdAt +
                 ", expiresAt=" + expiresAt +
                 ", domain='" + domain + '\'' +
+                ", clickCount=" + clickCount +
                 '}';
     }
 }

@@ -55,8 +55,8 @@ public class URLController {
         }
     }
     
-    /**
-     * Get statistics for the URL shortener
+        /**
+     * Get service statistics
      * @return statistics response
      */
     @GetMapping("/stats")
@@ -64,14 +64,7 @@ public class URLController {
         logger.debug("Received request for statistics");
         
         try {
-            Map<String, Object> stats = new HashMap<>();
-            stats.put("service", "URL Shortener API");
-            stats.put("status", "active");
-            stats.put("timestamp", java.time.Instant.now().toString());
-            
-            // Potential for domain specific stats
-            // stats.put("totalUrls", urlService.getUrlCountByDomain("localhost"));
-            
+            Map<String, Object> stats = urlService.getStatistics();
             return ResponseEntity.ok(stats);
             
         } catch (Exception e) {
