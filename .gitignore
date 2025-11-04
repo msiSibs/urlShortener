@@ -36,4 +36,7 @@ yarn-error.log*
 .github
 
 # docs for ai use
-docs
+docs/*
+!docs/SECURITY.md
+!docs/DEVELOPMENT_PLAN.md
+!docs/TESTING.md

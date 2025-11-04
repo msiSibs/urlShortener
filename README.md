@@ -1,19 +1,23 @@
+
 # URL Shortener
 
-A modern URL shortener application built with Java Spring Boot backend and React TypeScript frontend.
+A modern, fully functional URL shortener application built with Java Spring Boot backend and React TypeScript frontend.
 
 ## 🚀 Features
 
-**Current Status: Phase 2 Complete - Backend Core Development & Testing**
+**Current Status: Phase 4 - Integration & Testing (80% Complete)**
 
 - ✅ **Project Architecture**: Complete development environment setup
 - ✅ **Docker Ready**: Complete containerized development environment
 - ✅ **URL Shortening**: Full backend implementation with Base62 encoding
 - ✅ **Instant Redirection**: Backend redirection service with expiration support
 - ✅ **Custom Short Codes**: Support for user-defined short codes
-- ✅ **Comprehensive Testing**: 37 passing tests covering all backend functionality
-- ✅ **Statistics & Analytics**: URL usage statistics and cleanup operations
-- 🔄 **Responsive Frontend**: Coming in Phase 3 (Frontend Implementation)
+- ✅ **Comprehensive Testing**: 37 passing backend tests covering all functionality
+- ✅ **Statistics & Analytics**: Enhanced URL usage statistics with privacy features
+- ✅ **Modern Frontend**: Complete React UI with Tailwind CSS and responsive design
+- ✅ **Security Features**: User education and privacy-preserving URL display
+- ✅ **Full Integration**: Frontend-backend integration working end-to-end
+- 🔄 **Production Ready**: Final testing and deployment preparation
 
 ## 🏗️ Architecture
 
@@ -22,41 +26,42 @@ A modern URL shortener application built with Java Spring Boot backend and React
 - **Database**: MongoDB for fast NoSQL operations
 - **Deployment**: Docker Compose for local development, AWS-ready architecture
 
-## 📋 Development Phases
+## ✨ Enhanced Features
 
-### ✅ Phase 1: Project Setup & Infrastructure (Complete)
-- ✅ Project structure and documentation
-- ✅ Docker configuration for all services
-- ✅ Development environment setup
-- ✅ Basic Spring Boot application with health endpoint
-- ✅ React application with TypeScript
-- ✅ MongoDB database configuration
+Beyond the MVP scope, this implementation includes advanced features:
 
-### ✅ Phase 2: Backend Core Development (Complete)
-- ✅ URL shortening service implementation
-- ✅ MongoDB repository and models with URLMapping entity
-- ✅ RESTful API endpoints (shorten, redirect, info, stats, cleanup)
-- ✅ URL validation and expiration logic
-- ✅ Base62 encoding utility for short codes
-- ✅ Custom short code support
-- ✅ Global exception handling
-- ✅ Comprehensive unit and integration tests (37 passing tests)
-- ✅ Test coverage for all components (utilities, services, controllers)
+### 🎨 Modern Frontend
+- **Tailwind CSS v4.1.16**: Professional gradients and responsive design
+- **Component Architecture**: Reusable UI components (Button, Input, Card, LoadingSpinner)
+- **Dark Mode Support**: Built-in theme compatibility
+- **Copy-to-Clipboard**: One-click sharing with visual feedback
+- **Real-time Validation**: Instant URL validation and error feedback
 
-### � Phase 3: Frontend Implementation (Next)
-- � React components for URL shortening
-- � User interface design with modern styling
-- � API integration with backend services
-- � Error handling and validation on frontend
-- � Responsive design for mobile and desktop
-- 🔄 URL statistics and management interface
+### 📊 Statistics Dashboard
+- **Real-time Analytics**: Total URLs, clicks, active/expired counts
+- **Privacy-Preserving Display**: URL paths redacted in public statistics
+- **Recent URLs Tracking**: Latest shortened URLs with metadata
+- **Visual Indicators**: Professional UI with loading states and animations
 
-### 📋 Phase 4: Production Ready (Planned)
-- 📋 Production Docker configuration
-- 📋 CI/CD pipeline activation
-- 📋 Performance optimization
-- 📋 Security enhancements
-- 📋 AWS deployment setup
+### 🔒 Security & Privacy
+- **Security Awareness Component**: User education about URL shortener risks
+- **Privacy Protection**: Sensitive URL parts hidden in statistics display
+- **Input Validation**: Comprehensive frontend and backend validation
+- **Error Handling**: Professional error messages and recovery
+
+### 🚀 Performance Features
+- **Sub-second Response Times**: Optimized API endpoints
+- **Efficient Database Queries**: MongoDB indexing and query optimization
+- **Click Tracking**: Enhanced analytics with performance monitoring
+- **Automatic Cleanup**: Expired URL removal with statistics tracking
+
+
+
+## 📄 Documentation
+
+- [Security](docs/SECURITY.md)
+- [Development Plan](docs/DEVELOPMENT_PLAN.md)
+- [Testing](docs/TESTING.md)
 
 ## 🛠️ Quick Start
 
@@ -81,12 +86,14 @@ A modern URL shortener application built with Java Spring Boot backend and React
    ```
 
 3. **Access the application**
-   - Frontend: http://localhost:3000 (React development server)
-   - Backend API: http://localhost:8080 (Fully functional URL shortener)
-   - Health Check: http://localhost:8080/health  
-   - URL Shortening: http://localhost:8080/api/shorten
-   - URL Stats: http://localhost:8080/api/stats
-   - MongoDB: Available on host port 27018 (container port 27017)
+   - **Frontend**: http://localhost:3000 (Complete React URL Shortener Interface)
+   - **Backend API**: http://localhost:8080 (Fully functional REST API)
+   - **Health Check**: http://localhost:8080/actuator/health  
+   - **URL Shortening**: http://localhost:8080/api/shorten
+   - **Enhanced Statistics**: http://localhost:8080/api/stats
+   - **MongoDB**: Available on host port 27018 (container port 27017)
+
+**✅ Application Status**: Fully functional URL shortener with modern UI and comprehensive backend API.
 
 **Note**: Docker setup uses MongoDB on port 27018 to avoid conflicts with local MongoDB instances.
 
@@ -136,217 +143,20 @@ A modern URL shortener application built with Java Spring Boot backend and React
    - URL Shortening: http://localhost:8080/api/shorten
    - URL Stats: http://localhost:8080/api/stats
 
+
 ## 📡 API Endpoints
 
-**Backend API is fully functional! All endpoints listed below are implemented and tested.**
+See [API_ENDPOINTS.md](docs/API_ENDPOINTS.md) for the full list of backend API endpoints and example requests/responses.
 
-### Health Check
-```http
-GET /health
-```
-
-**Response:**
-```json
-{
-  "status": "UP",
-  "service": "URL Shortener Backend",
-  "timestamp": "2024-11-04T10:30:00.123Z"
-}
-```
-
-### Actuator Health Check
-```http
-GET /actuator/health
-```
-
-**Response:**
-```json
-{
-  "status": "UP"
-}
-```
-
-### Shorten URL
-```http
-POST /api/shorten
-Content-Type: application/json
-
-{
-  "url": "https://www.example.com/very/long/url",
-  "expiresInDays": 30,
-  "customCode": "mylink"
-}
-```
-
-**Response:**
-```json
-{
-  "shortUrl": "http://localhost:8080/aB3dEf",
-  "shortCode": "aB3dEf",
-  "originalUrl": "https://www.example.com/very/long/url",
-  "expiresAt": "2024-12-04T10:30:00Z"
-}
-```
-
-### Redirect to Original URL
-```http
-GET /{shortCode}
-```
-
-**Response:** `301 Moved Permanently` with `Location` header pointing to original URL
-
-### Get URL Information
-```http
-GET /info/{shortCode}
-```
-
-**Response:**
-```json
-{
-  "shortCode": "aB3dEf",
-  "originalUrl": "https://www.example.com/very/long/url",
-  "createdAt": "2024-11-04T10:30:00Z",
-  "expiresAt": "2024-12-04T10:30:00Z",
-  "domain": "example.com"
-}
-```
-
-### Get URL Statistics
-```http
-GET /api/stats
-```
-
-**Response:**
-```json
-{
-  "totalUrls": 150,
-  "urlMappings": [
-    {
-      "shortCode": "aB3dEf",
-      "originalUrl": "https://www.example.com/very/long/url",
-      "createdAt": "2024-11-04T10:30:00Z",
-      "domain": "example.com"
-    }
-  ]
-}
-```
-
-### Cleanup Expired URLs
-```http
-POST /api/cleanup
-```
-
-**Response:**
-```json
-{
-  "message": "Cleanup completed successfully",
-  "deletedCount": 5
-}
-```
 
 ## 🧪 Testing
 
-### Backend Tests (Comprehensive Test Suite)
-```bash
-cd backend
-./mvnw test
+See [TESTING.md](docs/TESTING.md) for backend and frontend testing instructions, coverage, and manual API testing examples.
 
-# Test Results Summary:
-# ✅ Base62EncoderTest: 12/12 tests passed
-# ✅ URLServiceTest: 11/11 tests passed  
-# ✅ URLControllerTest: 8/8 tests passed
-# ✅ RedirectControllerTest: 6/6 tests passed
-# Total: 37/37 tests passed (100% success rate)
-```
-
-**Test Coverage:**
-- **Utility Layer:** Base62 encoding/decoding with edge cases
-- **Service Layer:** Business logic, validation, and error handling
-- **Controller Layer:** REST API endpoints and HTTP responses
-- **Integration:** Repository tests (require MongoDB instance)
-
-### Frontend Tests
-```bash
-cd frontend
-# Frontend testing framework will be implemented in Phase 3
-npm run lint  # Available now for code quality
-```
-
-### Manual API Testing
-```bash
-# Test URL shortening
-curl -X POST http://localhost:8080/api/shorten \
-  -H "Content-Type: application/json" \
-  -d '{"url": "https://www.example.com", "expiresInDays": 30}'
-
-# Test redirection (replace 'shortcode' with actual code from above)
-curl -I http://localhost:8080/{shortcode}
-
-# Test health check
-curl http://localhost:8080/health
-
-# Test statistics
-curl http://localhost:8080/api/stats
-```
 
 ## 📦 Project Structure
 
-```
-urlShortener/
-├── README.md
-├── docker-compose.yml
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-├── backend/
-│   ├── src/
-│   │   ├── main/java/com/urlshortener/
-│   │   │   ├── UrlShortenerApplication.java
-│   │   │   ├── config/
-│   │   │   ├── controller/
-│   │   │   │   ├── HealthController.java
-│   │   │   │   ├── URLController.java
-│   │   │   │   └── RedirectController.java
-│   │   │   ├── dto/
-│   │   │   │   ├── ShortenURLRequest.java
-│   │   │   │   └── ShortenURLResponse.java
-│   │   │   ├── exception/
-│   │   │   │   └── GlobalExceptionHandler.java
-│   │   │   ├── model/
-│   │   │   │   └── URLMapping.java
-│   │   │   ├── repository/
-│   │   │   │   └── URLRepository.java
-│   │   │   ├── service/
-│   │   │   │   └── URLService.java
-│   │   │   └── util/
-│   │   │       └── Base62Encoder.java
-│   │   ├── test/java/com/urlshortener/
-│   │   │   ├── controller/
-│   │   │   │   ├── URLControllerTest.java
-│   │   │   │   └── RedirectControllerTest.java
-│   │   │   ├── repository/
-│   │   │   │   └── URLRepositoryTest.java
-│   │   │   ├── service/
-│   │   │   │   └── URLServiceTest.java
-│   │   │   └── util/
-│   │   │       └── Base62EncoderTest.java
-│   │   └── resources/
-│   │       ├── application.properties
-│   │       ├── application-dev.properties
-│   │       ├── application-docker.properties
-│   │       └── test/
-│   │           └── application-test.properties
-├── frontend/
-│   ├── src/
-│   ├── package.json
-│   ├── Dockerfile
-│   └── .gitignore
-└── docs/
-    ├── PROJECT_BREAKDOWN.md
-    ├── SYSTEM_ARCHITECTURE.md
-    ├── DEVELOPMENT_PLAN.md
-    └── BACKEND_TEST_SUMMARY.md
-```
+See [PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) for a high-level overview of the project layout.
 
 ## 🔧 Development
 
