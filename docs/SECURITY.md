@@ -24,6 +24,14 @@ This document outlines the security considerations, current implementations, ide
 - **Expiration Enforcement**: Expired URLs automatically blocked
 - **Click Tracking**: Audit trail for URL access patterns
 
+#### **Spring Security Implementation (2025)**
+- **Actuator Endpoint Protection**: Spring Boot Actuator endpoints restricted to ADMIN role only
+- **HTTP Basic Authentication**: Secure authentication for sensitive endpoints
+- **CSRF Protection**: Disabled for REST API endpoints (appropriate for stateless APIs)
+- **Role-Based Access Control**: ADMIN role required for actuator access
+- **Public API Access**: `/api/**` endpoints remain publicly accessible
+- **Health Endpoint**: `/health` endpoint publicly accessible for load balancer checks
+
 ### ✅ **Infrastructure Security**
 
 #### **Database Security**

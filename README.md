@@ -12,7 +12,7 @@ A modern, fully functional URL shortener application built with Java Spring Boot
 - ✅ **URL Shortening**: Full backend implementation with Base62 encoding
 - ✅ **Instant Redirection**: Backend redirection service with expiration support
 - ✅ **Custom Short Codes**: Support for user-defined short codes
-- ✅ **Comprehensive Testing**: 37 passing backend tests covering all functionality
+- ✅ **Comprehensive Testing**: 41 passing backend tests covering all functionality
 - ✅ **Statistics & Analytics**: Enhanced URL usage statistics with privacy features
 - ✅ **Modern Frontend**: Complete React UI with Tailwind CSS and responsive design
 - ✅ **Security Features**: User education and privacy-preserving URL display
@@ -21,7 +21,7 @@ A modern, fully functional URL shortener application built with Java Spring Boot
 
 ## 🏗️ Architecture
 
-- **Backend**: Spring Boot 3.3.5 with Java 21
+- **Backend**: Spring Boot 3.4.0 with Java 21
 - **Frontend**: React 18 with TypeScript and Vite  
 - **Database**: MongoDB for fast NoSQL operations
 - **Deployment**: Docker Compose for local development, AWS-ready architecture
@@ -192,7 +192,7 @@ VITE_APP_TITLE=URL Shortener
 
 ### Code Quality
 
-- **Backend**: Uses Spring Boot best practices with comprehensive testing (37 passing tests)
+- **Backend**: Uses Spring Boot best practices with comprehensive testing (41 passing tests)
 - **Frontend**: TypeScript with ESLint configuration
 - **Testing**: Complete unit and integration test coverage for backend
 - **CI/CD**: GitHub Actions workflow configured but not yet active

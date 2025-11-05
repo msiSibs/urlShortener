@@ -35,7 +35,7 @@ const URLResult: React.FC<URLResultProps> = ({ result, onNewUrl }) => {
     const shareUrls = {
       twitter: `https://twitter.com/intent/tweet?text=${text}`,
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${text}`,
       whatsapp: `https://wa.me/?text=${text}`,
       email: `mailto:?subject=Shortened URL&body=${text}`,
     };
