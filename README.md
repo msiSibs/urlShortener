@@ -26,6 +26,10 @@ A modern, fully functional URL shortener application built with Java Spring Boot
 - **Database**: MongoDB for fast NoSQL operations
 - **Deployment**: Docker Compose for local development, AWS-ready architecture
 
+## 📸 Application Preview
+
+![URL Shortener Application](docs/appPreview.png)
+
 ## ✨ Enhanced Features
 
 Beyond the MVP scope, this implementation includes advanced features:

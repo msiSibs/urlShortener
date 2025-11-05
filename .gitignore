@@ -40,3 +40,4 @@ docs/*
 !docs/SECURITY.md
 !docs/DEVELOPMENT_PLAN.md
 !docs/TESTING.md
+!docs/appPreview.png
